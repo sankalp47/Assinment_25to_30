@@ -1,0 +1,85 @@
+package April_27;
+
+public class getSizeDoublyList {
+    static DNode head;
+    public static void main(String[] args) {
+        addFirst(20);
+        addFirst(5);
+        addFirst(10);
+        addFirst(45);
+        addFirst(25);
+        addFirst(15);
+        display();
+
+        getSize();
+        greaterThan25();
+    }
+    public static void addFirst(int data){
+        DNode newNode = new DNode(data);
+        if (head==null){
+            head = newNode;
+        }
+        else {
+            head.left = newNode;
+            newNode.right = head;
+            head = newNode;
+        }
+    }
+    public static void display(){
+        if (head==null){
+            System.out.println("List is empty! ");
+        }
+        else{
+            DNode curr = head;
+            while (curr!=null){
+                System.out.print(curr.data+" ");
+                curr = curr.right;
+            }
+            System.out.println("Null");
+        }
+    }
+    public static void getSize(){
+        int size = 0;
+        if (head==null){
+            System.out.println("List is empty! ");
+        }
+        else {
+            DNode curr = head;
+            while (curr!=null){
+                size++;
+                curr = curr.right;
+            }
+        }
+        System.out.println("The size of the list is: "+size);
+    }
+    public static void greaterThan25(){
+        if (head==null){
+            System.out.println("List is empty! ");
+        }
+        else{
+            DNode curr = head;
+            while (curr!=null ){
+                if (curr.data<25) {
+                    System.out.print(curr.data + " ");
+                }
+                curr = curr.right;
+            }
+        }
+    }
+}
+------------------------------------------------
+
+package April_27;
+
+public class DNode {
+    int data;
+    DNode left;
+    DNode right;
+
+    public DNode(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
